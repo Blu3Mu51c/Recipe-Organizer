@@ -28,7 +28,7 @@ Built with Node.js, Express, MongoDB, and JSX views.
 
 
 **Architecture Diagram:**:
-
+```
 ┌───────────────┐    ┌─────────────────┐    ┌─────────────┐
 │ Ingredients   │    │   Recipe        │    │    User     │
 │               │    │                 │    │             │
@@ -40,7 +40,7 @@ Built with Node.js, Express, MongoDB, and JSX views.
 |               |    │ • Rupdated      │    |             |
 |               |    │ • RDescription  │    |             |
 └───────────────┘    └─────────────────┘    └─────────────┘
-
+```
 ## Routes Table
 
 User
