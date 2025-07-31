@@ -32,14 +32,14 @@ Built with Node.js, Express, MongoDB, and JSX views.
 ┌───────────────┐    ┌─────────────────┐    ┌─────────────┐
 │ Ingredients   │    │   Recipe        │    │    User     │
 │               │    │                 │    │             │
-│ • Iname       │◄───│ • Rtitle        │◄───│ • name      │
+│ • Iname       │    │ • Rtitle        │    | • name      │
 │ • Iquantity   │    │ • Rowner        │    │ • email     │
-│ • Iunit       │    │ • Ringredients[]│    │ • password  │
+│ • Iunit       │◄───│ • Ringredients[]│◄───│ • password  │
 │ • IAdditional │    │ • Rinstructions │    │ • recipe[]  │
-└───────────────┘    │ • Rcreated      │    └─────────────┘
-                     │ • Rupdated      │
-                     │ • RDescription  │
-                     └─────────────────┘
+|               |    │ • Rcreated      │    |             |
+|               |    │ • Rupdated      │    |             |
+|               |    │ • RDescription  │    |             |
+└───────────────┘    └─────────────────┘    └─────────────┘
 
 ## Routes Table
 
@@ -67,3 +67,5 @@ Ingredients
 
 # GitHub
 [Recipe-Organizer](https://github.com/Blu3Mu51c/Recipe-Organizer)
+
+[Trello](https://trello.com/invite/b/688b0f0c5e3b4a57d97d8a5a/ATTIf53947960d97e8289c7aa13f0fc4d1d919E2ADC6/recipe-organizer)
