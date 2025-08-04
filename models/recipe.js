@@ -12,6 +12,16 @@ const recipeSchema = new mongoose.Schema({
   description: {type:String, required:true},
   instructions: {type:String, required:true},
   ingredients: [ingredientSchema],
+  category: {
+    type: String,
+    enum: ['Appetizer', 'Main Course', 'Dessert', 'Snack', 'Drink'],
+    default: 'Main Course',
+  },
+  mealTime: {
+    type: String,
+    enum: ['Breakfast', 'Lunch', 'Dinner', 'Snack', 'Anytime'],
+    default: 'Anytime',
+  },
   
 });
 
@@ -39,15 +49,6 @@ set default to defeault
 
 
 /*
-  category: {
-    type: String,
-    enum: ['Appetizer', 'Main Course', 'Dessert', 'Snack', 'Drink'],
-    default: 'Main Course',
-  },
-  mealTime: {
-    type: String,
-    enum: ['Breakfast', 'Lunch', 'Dinner', 'Snack', 'Anytime'],
-    default: 'Anytime',
-  },
+
 
 */

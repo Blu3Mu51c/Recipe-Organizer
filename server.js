@@ -1,29 +1,26 @@
 require('dotenv').config()
-const express = require('express')
-const mongoose = require('mongoose')
-const jsxEngine = require('jsx-view-engine')
-const methodOverride = require('method-override')
-const app = express()
-
-const recipeRouter = require('./controllers/recipes/routeController')
-
+const app = require('./app.js')
+const database = require('./models/database')
 const PORT = process.env.PORT || 3000
 
-app.use(express.urlencoded({ extended: true }))
-app.use(methodOverride('_method'))
-app.set('view engine', 'jsx')
-app.engine('jsx', jsxEngine())
-
-mongoose.connect(process.env.MONGO_URI)
-mongoose.connection.once('open', () => {
-  console.log('We have contact')
+database.once('open', () => {
+    console.log('connected to mongo')
 })
 
-//const Recipe = require('./models/recipe.js')
-app.use('/', recipeRouter);
+database.on('error', (error) => {
+  console.error(error.message)
+})
 
+app.listen(PORT, () => {
+    console.log(`We in the building ${PORT}`)
+})
+
+
+
+
+//const Recipe = require('./models/recipe.js')
 /*
-//My Routes
+//Old Routes
 
 //Homepage that redirects to recipes index
 app.get('/', (req, res) => {
@@ -126,11 +123,6 @@ app.delete('/recipes/:id', async (req, res) => {
   res.redirect('/recipes')
 })
 */
-
-// Listen request
-app.listen(PORT, () => {
-  console.log(`Port ${PORT} is now listening`)
-})
 
 
 /*

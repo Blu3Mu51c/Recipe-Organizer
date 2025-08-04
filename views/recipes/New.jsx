@@ -15,7 +15,23 @@ function New() {
 
                     <label>Instructions:</label><br />
                     <textarea name="instructions"></textarea><br />
+                    <label htmlFor="category">Category:</label>
+                    <select name="category" id="category">
+                        <option value="Main Course">Main Course</option>
+                        <option value="Appetizer">Appetizer</option>
+                        <option value="Dessert">Dessert</option>
+                        <option value="Snack">Snack</option>
+                        <option value="Drink">Drink</option>
+                    </select><br />
 
+                    <label htmlFor="mealTime">Meal Time:</label>
+                    <select name="mealTime" id="mealTime">
+                        <option value="Anytime">Anytime</option>
+                        <option value="Breakfast">Breakfast</option>
+                        <option value="Lunch">Lunch</option>
+                        <option value="Supper">Supper</option>
+                        <option value="Dinner">Dinner</option>
+                    </select><br />             
                     <input type="submit" value="Create Recipe" />
                 </form>
                 <a href="/recipes">Back to Recipes</a>

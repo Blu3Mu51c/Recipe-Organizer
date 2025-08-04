@@ -10,21 +10,40 @@ function Edit(props) {
                 <h1>Edit {recipe.title}</h1>
 
                 <form action={`/recipes/${recipe._id}?_method=PUT`} method="POST">
-                    <label>Title:</label><br />
+                    <label htmlFor="title">Title:</label><br />
                     <input type="text" name="title" defaultValue={recipe.title} required /><br />
 
-                    <label>Description:</label><br />
+                    <label htmlFor="description">Description:</label><br />
                     <textarea name="description" defaultValue={recipe.description}></textarea><br />
+                    
+                    <label htmlFor="category">Category:</label>
+                    <select name="category" id="category" defaultValue={recipe.category}>
+                        <option value="Main Course">Main Course</option>
+                        <option value="Appetizer">Appetizer</option>
+                        <option value="Dessert">Dessert</option>
+                        <option value="Snack">Snack</option>
+                        <option value="Drink">Drink</option>
+                    </select><br />
 
-                    <label>Instructions:</label><br />
+                    <label htmlFor="mealTime">Meal Time:</label>
+                    <select name="mealTime" id="mealTime" defaultValue={recipe.mealTime}>
+                        <option value="Anytime">Anytime</option>
+                        <option value="Breakfast">Breakfast</option>
+                        <option value="Lunch">Lunch</option>
+                        <option value="Supper">Supper</option>
+                        <option value="Dinner">Dinner</option>
+                    </select><br />
+
+                    <label htmlFor="instructions">Instructions:</label><br />
                     <textarea name="instructions" defaultValue={recipe.instructions}></textarea><br />
+
+
                     <input type="submit" value="Update Recipe" />
                 </form>
 
                 <hr />
 
                 <h2>Ingredients</h2>
-
                 <ul>
                     {recipe.ingredients.map((ing, i) => (
                         <li key={i}>

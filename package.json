@@ -6,6 +6,21 @@
     "jsx-view-engine": "^1.0.0",
     "method-override": "^3.0.0",
     "mongoose": "^8.17.0",
+    "morgan": "^1.10.1",
     "nodemon": "^3.1.10"
-  }
+  },
+  "name": "recipe-organizer",
+  "version": "1.0.0",
+  "description": "A full-stack application to manage user recipe collection with:",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

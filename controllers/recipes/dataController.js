@@ -21,15 +21,21 @@ dataController.createRecipe = async (req, res, next) => {
     }
   }
 
-  dataController.updateRecipe = async (req, res, next) => {
-    try {
-      const { title, description, instructions } = req.body;
-      await Recipe.findByIdAndUpdate(req.params.id, { title, description, instructions });
-      next();
-    } catch (err) {
-      res.status(400).send(err.message);
-    }
+dataController.updateRecipe = async (req, res, next) => {
+  try {
+    const { title, description, instructions, category, mealTime } = req.body;
+    await Recipe.findByIdAndUpdate(req.params.id, {
+      title,
+      description,
+      instructions,
+      category,    // New field
+      mealTime,    // New field
+    });
+    next();
+  } catch (err) {
+    res.status(400).send(err.message);
   }
+};
 
   dataController.addIngredient = async (req, res, next) => {
     try {

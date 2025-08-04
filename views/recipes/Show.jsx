@@ -15,7 +15,12 @@ function Show(props) {
             </ul>
             <h3>Instructions:</h3>
             <pre>{recipe.instructions}</pre>
-
+            <div>
+            <strong>Category:</strong> {recipe.category}
+            </div>
+            <div>
+            <strong>Meal Time:</strong> {recipe.mealTime}
+            </div>
             <form action={`/recipes/${recipe._id}?_method=DELETE`} method="POST">
                 <input type="submit" value={`Delete ${recipe.title}`} />
             </form>
