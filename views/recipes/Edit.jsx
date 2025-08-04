@@ -18,7 +18,6 @@ function Edit(props) {
 
                     <label>Instructions:</label><br />
                     <textarea name="instructions" defaultValue={recipe.instructions}></textarea><br />
-
                     <input type="submit" value="Update Recipe" />
                 </form>
 
@@ -44,8 +43,8 @@ function Edit(props) {
                 <h3>Add New Ingredient</h3>
                 <form action={`/recipes/${recipe._id}/ingredients`} method="POST">
                     <input type="text" name="name" placeholder="Name" required />
-                    <input type="number" step="any" name="quantity" placeholder="Quantity" required />
-                    <input type="text" name="unit" placeholder="Unit" required />
+                    <input type="text" step="any" name="quantity" placeholder="Quantity" />
+                    <input type="text" name="unit" placeholder="Unit"/>
                     <input type="text" name="additional" placeholder="Additional (optional)" />
                     <input type="submit" value="Add Ingredient" />
                 </form>

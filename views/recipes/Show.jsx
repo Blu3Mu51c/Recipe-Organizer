@@ -14,7 +14,7 @@ function Show(props) {
                 ))}
             </ul>
             <h3>Instructions:</h3>
-            <p>{recipe.instructions}</p>
+            <pre>{recipe.instructions}</pre>
 
             <form action={`/recipes/${recipe._id}?_method=DELETE`} method="POST">
                 <input type="submit" value={`Delete ${recipe.title}`} />
