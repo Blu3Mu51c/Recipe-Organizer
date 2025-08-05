@@ -1,6 +1,14 @@
 const RESOURCE_PATH = '/recipes';
 
+
 const viewController = {
+
+browse: (req, res) => {
+  res.render('recipes/Browse', {
+    recipes: res.locals.data.recipes,
+  });
+},
+
   index: (req, res, next) => {
     res.render('recipes/Index', {
       recipes: res.locals.data.recipes,

@@ -15,7 +15,7 @@ function SignIn() {
         <button type="submit">Log In</button>
       </form>
       <p>
-        Don’t have an account? <a href="/users">Sign up</a>
+        Don’t have an account? <a href="/users/signup">Sign up</a>
       </p>
     </div>
   );

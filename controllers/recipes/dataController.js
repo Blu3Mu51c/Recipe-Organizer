@@ -11,6 +11,17 @@ function capitalizeWords(str) {
     .join(' ');
 }
 
+// GET / (home page) - public, shows all recipes from all users
+dataController.browse = async (req, res, next) => {
+  try {
+    const recipes = await Recipe.find(); // gets all recipes
+    res.locals.data.recipes = recipes;
+    next();
+  } catch (err) {
+    res.status(400).send({ message: err.message });
+  }
+};
+
 // GET /recipes - list recipes for logged-in user
 dataController.index = async (req, res, next) => {
   try {
