@@ -22,8 +22,7 @@ router.delete('/:id', authDataController.auth, dataController.destroy, viewContr
 router.put('/:id', authDataController.auth, dataController.update, viewController.redirectShow);
 
 // Create
-router.post('/', authDataController.auth, dataController.create, viewController.redirectHome);
-
+router.post('/', authDataController.auth, dataController.create, viewController.redirectEdit);
 //Create
 router.post(
   '/:id/ingredients',

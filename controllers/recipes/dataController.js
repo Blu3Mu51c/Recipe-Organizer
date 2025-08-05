@@ -67,10 +67,10 @@ dataController.addIngredient = async (req, res, next) => {
     if (!recipe) throw new Error('Recipe not found');
 
     recipe.ingredients.push({
-      name: req.body.name,
+      name: capitalizeWords(req.body.name),
       quantity: req.body.quantity,
-      unit: req.body.unit,
-      additional: req.body.additional,
+      unit: capitalizeWords(req.body.unit),
+      additional: capitalizeWords(req.body.additional),
     });
 
     await recipe.save();

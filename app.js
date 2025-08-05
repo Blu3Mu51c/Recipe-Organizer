@@ -1,7 +1,7 @@
 const express = require('express')
 const morgan = require('morgan')
 const jsxEngine = require('jsx-view-engine')
-const methodOverride = require('method-override')
+const methodOverride = require('method-override');
 const homeRoutes = require('./controllers/home/routeController');
 const userRoutes = require('./controllers/authentication/routeController')
 const recipesRouter = require('./controllers/recipes/routeController')
@@ -13,7 +13,7 @@ app.engine('jsx', jsxEngine())
 
 app.use(express.json()) 
 app.use(express.urlencoded({ extended: true })) 
-app.use(methodOverride('_method')) 
+app.use(methodOverride('_method'));
 
 app.use((req, res, next) => {
     res.locals.data = {}
