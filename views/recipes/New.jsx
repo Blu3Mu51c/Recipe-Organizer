@@ -1,12 +1,13 @@
 const React = require('react');
 
-function New() {
+function New(props) {
     return (
+        
         <html>
             <head><title>Create Recipe</title></head>
             <body>
                 <h1>Create New Recipe</h1>
-                <form action="/recipes" method="POST">
+                <form action={`/recipes?token=${props.token}`} method="POST">
                     <label>Title:</label><br />
                     <input type="text" name="title" required /><br />
 
@@ -34,7 +35,7 @@ function New() {
                     </select><br />             
                     <input type="submit" value="Create Recipe" />
                 </form>
-                <a href="/recipes">Back to Recipes</a>
+                <a href={`/recipes?token=${props.token}`}>Back to Recipes</a>
             </body>
         </html>
     );

@@ -2,7 +2,7 @@ const express = require('express')
 const morgan = require('morgan')
 const jsxEngine = require('jsx-view-engine')
 const methodOverride = require('method-override')
-//const userRoutes = require('./controllers/auth/routeController')
+const userRoutes = require('./controllers/authentication/routeController')
 const recipesRouter = require('./controllers/recipes/routeController')
 //const apiRoutes = require('./routes/apiRoutes')
 const app = express()
@@ -22,7 +22,7 @@ app.use(express.static('public'))
 app.use(morgan('dev'))
 
 // Web routes (for views)
-//app.use('/users', userRoutes)
+app.use('/users', userRoutes)
 
 
 app.use('/recipes', recipesRouter)

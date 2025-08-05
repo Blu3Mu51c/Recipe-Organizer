@@ -1,33 +1,49 @@
 const express = require('express');
 const router = express.Router();
-const dataController = require('./dataController');
-const viewController = require('./viewController');
+const viewController = require('./viewController.js');
+const dataController = require('./dataController.js');
+const authDataController = require('../authentication/dataController.js');
 
-// Index route (GET /recipes)
-router.get('/', viewController.index);
+// Index
+router.get(
+  '/',
+  authDataController.auth,
+  dataController.index,
+  viewController.index
+);
 
-// New recipe form (GET /recipes/new)
-router.get('/new', viewController.new);
+// New
+router.get('/new', authDataController.auth, viewController.newView);
 
-// Create recipe (POST /recipes)
-router.post('/', dataController.createRecipe, viewController.redirectToShow);
+// Delete
+router.delete('/:id', authDataController.auth, dataController.destroy, viewController.redirectHome);
 
-// Show recipe (GET /recipes/:id)
-router.get('/:id', viewController.show);
+// Update
+router.put('/:id', authDataController.auth, dataController.update, viewController.redirectShow);
 
-// Edit form (GET /recipes/:id/edit)
-router.get('/:id/edit', viewController.edit);
+// Create
+router.post('/', authDataController.auth, dataController.create, viewController.redirectHome);
 
-// Update recipe (PUT /recipes/:id)
-router.put('/:id', dataController.updateRecipe, viewController.redirectToEdit);
+//Create
+router.post(
+  '/:id/ingredients',
+  authDataController.auth,
+  dataController.addIngredient,
+  viewController.redirectEdit
+);
 
-// Add ingredient (POST /recipes/:id/ingredients)
-router.post('/:id/ingredients', dataController.addIngredient, viewController.redirectToEdit);
+//Delete
+router.delete(
+  '/:recipeId/ingredients/:ingredientId',
+  authDataController.auth,
+  dataController.deleteIngredient,
+  viewController.redirectEdit
+);
 
-// Delete ingredient (DELETE /recipes/:id/ingredients/:ingId)
-router.delete('/:id/ingredients/:ingId', dataController.deleteIngredient, viewController.redirectToEdit);
+// Edit
+router.get('/:id/edit', authDataController.auth, dataController.show, viewController.edit);
 
-// Delete recipe (DELETE /recipes/:id)
-router.delete('/:id', dataController.deleteRecipe, viewController.redirectToIndex);
+// Show
+router.get('/:id', authDataController.auth, dataController.show, viewController.show);
 
 module.exports = router;

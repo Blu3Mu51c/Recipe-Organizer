@@ -5,11 +5,13 @@ function Edit(props) {
 
     return (
         <html>
-            <head><title>Edit {recipe.title}</title></head>
+            <head>
+                <title>Edit {recipe.title}</title>
+            </head>
             <body>
                 <h1>Edit {recipe.title}</h1>
 
-                <form action={`/recipes/${recipe._id}?_method=PUT`} method="POST">
+                <form action={`/recipes/${recipe._id}?_method=PUT&token=${props.token}`} method="POST">
                     <label htmlFor="title">Title:</label><br />
                     <input type="text" name="title" defaultValue={recipe.title} required /><br />
 
@@ -51,7 +53,7 @@ function Edit(props) {
                             <form
                                 style={{ display: 'inline' }}
                                 method="POST"
-                                action={`/recipes/${recipe._id}/ingredients/${ing._id}?_method=DELETE`}
+                                action={`/recipes/${recipe._id}/ingredients/${ing._id}?_method=DELETE&token=${props.token}`}
                             >
                                 <button type="submit">Delete</button>
                             </form>
@@ -60,7 +62,7 @@ function Edit(props) {
                 </ul>
 
                 <h3>Add New Ingredient</h3>
-                <form action={`/recipes/${recipe._id}/ingredients`} method="POST">
+                 <form action={`/recipes/${recipe._id}/ingredients?token=${props.token}`} method="POST">
                     <input type="text" name="name" placeholder="Name" required />
                     <input type="text" step="any" name="quantity" placeholder="Quantity" />
                     <input type="text" name="unit" placeholder="Unit"/>
@@ -68,7 +70,7 @@ function Edit(props) {
                     <input type="submit" value="Add Ingredient" />
                 </form>
 
-                <a href={`/recipes/${recipe._id}`}>Back to Recipe</a>
+                <a href={`/recipes/${recipe._id}?token=${props.token}`}>Back to Recipe</a>
             </body>
         </html>
     );

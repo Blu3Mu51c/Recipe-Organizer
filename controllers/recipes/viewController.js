@@ -1,40 +1,55 @@
-const Recipe = require('../../models/recipe')
+const RESOURCE_PATH = '/recipes';
 
-const viewController= {
-    
-    home: (req, res) => {
-    res.redirect('/recipes');
-    },
-    
-    index: async (req, res) => {
-    const { category, mealTime } = req.query;
-    const filter = {};
-    if (category) filter.category = category;
-    if (mealTime) filter.mealTime = mealTime;
-    const recipes = await Recipe.find(filter);
-    res.render('recipes/Index', { recipes });
-    },
-    
-    new: (req, res) => {
-    res.render('recipes/New');
-    },
-    show: async (req, res) => {
-    const recipe = await Recipe.findById(req.params.id);
-    res.render('recipes/Show', { recipe }); 
-    },
-    edit: async (req, res) => {
-    const recipe = await Recipe.findById(req.params.id);
-    res.render('recipes/Edit', { recipe });
-    },
-    redirectToShow: (req, res) => {
-    res.redirect(`/recipes/${req.recipe._id}/edit`);
-    },
-    redirectToEdit: (req, res) => {
-    res.redirect(`/recipes/${req.params.id}/edit`);
-    },
-    redirectToIndex: (req, res) => {
-    res.redirect('/recipes');
-    },
-}
+const viewController = {
+  index: (req, res, next) => {
+    res.render('recipes/Index', {
+      recipes: res.locals.data.recipes,
+      token: res.locals.data.token,
+    });
+  },
 
-module.exports = viewController
+  newView: (req, res, next) => {
+    res.render('recipes/New', { token: res.locals.data.token });
+  },
+
+  show: (req, res, next) => {
+    res.render('recipes/Show', {
+      recipe: res.locals.data.recipe,
+      token: res.locals.data.token,
+    });
+  },
+
+  edit: (req, res, next) => {
+    res.render('recipes/Edit', {
+      recipe: res.locals.data.recipe,
+      token: res.locals.data.token,
+    });
+  },
+
+redirectEdit: (req, res, next) => {
+  const recipeId = res.locals.data.recipe?._id || req.params.recipeId;
+  if (res.locals.data.token) {
+    res.redirect(`${RESOURCE_PATH}/${recipeId}/edit?token=${res.locals.data.token}`);
+  } else {
+    res.redirect(`${RESOURCE_PATH}/${recipeId}/edit`);
+  }
+},
+
+  redirectShow: (req, res, next) => {
+    if (res.locals.data.token) {
+      res.redirect(`${RESOURCE_PATH}/${req.params.id}?token=${res.locals.data.token}`);
+    } else {
+      res.redirect(`${RESOURCE_PATH}/${req.params.id}`);
+    }
+  },
+
+  redirectHome: (req, res, next) => {
+    if (res.locals.data.token) {
+      res.redirect(`${RESOURCE_PATH}?token=${res.locals.data.token}`);
+    } else {
+      res.redirect(RESOURCE_PATH);
+    }
+  },
+};
+
+module.exports = viewController;

@@ -5,7 +5,7 @@ function Show(props) {
     return (
         <div>
             <h1>{recipe.title}</h1>
-            <a href="/recipes">Back to Recipes</a>
+            <a href={`/recipes?token=${props.token}`}>Back to Recipes</a>
             <p>{recipe.description}</p>
             <h3>Ingredients:</h3>
             <ul>
@@ -21,10 +21,10 @@ function Show(props) {
             <div>
             <strong>Meal Time:</strong> {recipe.mealTime}
             </div>
-            <form action={`/recipes/${recipe._id}?_method=DELETE`} method="POST">
+            <form action={`/recipes/${recipe._id}?_method=DELETE&token=${props.token}`} method="POST">
                 <input type="submit" value={`Delete ${recipe.title}`} />
             </form>
-            <a href={`/recipes/${recipe._id}/edit`}>
+            <a href={`/recipes/${recipe._id}/edit?token=${props.token}`}>
                 <button>Edit</button>
             </a>
         </div>
