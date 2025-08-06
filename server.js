@@ -1,16 +1,20 @@
-require('dotenv').config()
+require('dotenv').config()   // Load environment variables from .env file
 const app = require('./app.js')
 const database = require('./models/database')
-const PORT = process.env.PORT || 3000
 
+const PORT = process.env.PORT || 3000  // Use env port or fallback to 3000
+
+// Log successful MongoDB connection
 database.once('open', () => {
-    console.log('connected to mongo')
+  console.log('Connected to MongoDB')
 })
 
+// Log MongoDB connection errors
 database.on('error', (error) => {
-  console.error(error.message)
+  console.error('MongoDB connection error:', error.message)
 })
 
+// Start the Express server and listen on the configured port
 app.listen(PORT, () => {
-    console.log(`We in the building ${PORT}`)
+  console.log(`Server running on port ${PORT}`)
 })

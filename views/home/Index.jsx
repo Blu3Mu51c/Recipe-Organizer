@@ -2,6 +2,7 @@ const React = require('react');
 const Layout = require('../layouts/Layout');
 
 function HomeIndex({ recipes }) {
+  //inline styling
   const styles = {
     container: {
       maxWidth: '1000px',

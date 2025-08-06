@@ -2,6 +2,7 @@ const React = require('react');
 const Layout = require('../layouts/Layout');
 
 function Index({ recipes, token }) {
+  //inline styling
 const styles = {
   logoutBtn: {
     position: 'absolute',

@@ -2,7 +2,8 @@ const React = require('react');
 const Layout = require('../layouts/Layout');
 
 function Edit({ recipe, token }) {
- const styles = {
+  //inline styling
+const styles = {
   logoutBtn: {
     position: 'absolute',
     top: '20px',

@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "artillery": "^2.0.21",
     "bcrypt": "^6.0.0",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
@@ -7,9 +8,11 @@
     "jsonwebtoken": "^9.0.2",
     "jsx-view-engine": "^1.0.0",
     "method-override": "^3.0.0",
+    "mongodb-memory-server": "^10.2.0",
     "mongoose": "^8.17.0",
     "morgan": "^1.10.1",
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.10",
+    "supertest": "^7.1.4"
   },
   "name": "recipe-organizer",
   "version": "1.0.0",
@@ -18,11 +21,17 @@
   "directories": {
     "test": "tests"
   },
+  "jest": {
+    "testEnvironment": "node"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "node server.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^30.0.5"
+  }
 }

@@ -2,6 +2,7 @@ const React = require('react');
 const Layout = require('../layouts/Layout');
 
 function SignUp() {
+  //inline styling
   const styles = {
     container: {
       maxWidth: '500px',
