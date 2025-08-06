@@ -36,8 +36,8 @@ Built with Node.js, Express, MongoDB, and JSX views.
 │ • Iquantity   │    │ • Rowner        │    │ • email     │
 │ • Iunit       │◄───│ • Ringredients[]│◄───│ • password  │
 │ • IAdditional │    │ • Rinstructions │    │ • recipe[]  │
-└───────────────┘    │ • Rcreated      │    └─────────────┘
-                     │ • Rupdated      │ 
+└───────────────┘    │ • Rmealtime     │    └─────────────┘
+                     │ • Rcategory     │ 
                      │ • RDescription  │
                      └─────────────────┘
 ```

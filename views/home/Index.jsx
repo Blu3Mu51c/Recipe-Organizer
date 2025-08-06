@@ -39,6 +39,8 @@ function HomeIndex({ recipes }) {
       textDecoration: 'none',
       transition: 'background 0.3s ease',
     },
+    //compact
+    /*
     recipeList: {
       listStyle: 'none',
       padding: 0,
@@ -52,6 +54,21 @@ function HomeIndex({ recipes }) {
       padding: '1.5rem',
       boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
       border: '1px solid #e8c7b8',
+    },*/
+    //free
+    recipeList: {
+    listStyle: 'none',
+    padding: 0,
+    margin: 0,
+    display: 'block',
+    },
+    card: {
+    background: '#fce8dc',
+    borderRadius: '10px',
+    padding: '1.5rem',
+    boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
+    border: '1px solid #e8c7b8',
+    marginBottom: '1.5rem',
     },
     cardTitle: {
       fontSize: '1.5rem',
@@ -65,6 +82,24 @@ function HomeIndex({ recipes }) {
     ingredientsList: {
       paddingLeft: '1rem',
       marginTop: '0.5rem',
+    },
+    filterForm: {
+      marginBottom: '2rem',
+      display: 'flex',
+      gap: '1rem',
+      flexWrap: 'wrap',
+    },
+    input: {
+      padding: '0.5rem',
+      borderRadius: '4px',
+      border: '1px solid #ccc',
+      flex: '1 1 200px',
+    },
+    select: {
+      padding: '0.5rem',
+      borderRadius: '4px',
+      border: '1px solid #ccc',
+      flex: '1 1 150px',
     },
   };
 
@@ -82,6 +117,37 @@ function HomeIndex({ recipes }) {
             </a>
           </div>
         </header>
+
+        <form method="GET" style={styles.filterForm}>
+          <input
+            type="text"
+            name="name"
+            placeholder="Search by name"
+            style={styles.input}
+            defaultValue=""
+          />
+
+          <select name="category" style={styles.select} defaultValue="">
+            <option value="">All Categories</option>
+            <option value="Main Course">Main Course</option>
+                <option value="Appetizer">Appetizer</option>
+                <option value="Dessert">Dessert</option>
+                <option value="Snack">Snack</option>
+                <option value="Drink">Drink</option>
+          </select>
+
+          <select name="mealTime" style={styles.select} defaultValue="">
+            <option value="">All Meal Times</option>
+            <option value="Anytime">Anytime</option>
+                <option value="Breakfast">Breakfast</option>
+                <option value="Lunch">Lunch</option>
+                <option value="Supper">Supper</option>
+                <option value="Dinner">Dinner</option>
+          </select>
+
+          <button type="submit" style={styles.button}>Filter</button>
+        </form>
+
 
         <ul style={styles.recipeList}>
           {recipes.map(recipe => (

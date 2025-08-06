@@ -157,10 +157,10 @@ function Show({ recipe, token }) {
 
         <div style={styles.metadata}>
           <div style={styles.metadataItem}>
-            <p><strong>Category:</strong> {recipe.category}</p>
+            <p><strong>Category:</strong> <br></br>{recipe.category}</p>
           </div>
           <div style={styles.metadataItem}>
-            <p><strong>Meal Time:</strong> {recipe.mealTime}</p>
+            <p><strong>Meal Time:</strong> <br></br>{recipe.mealTime}</p>
           </div>
         </div>
 
