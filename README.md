@@ -65,7 +65,27 @@ Ingredients
 - PUT	    ./ingredients/:id	Update ingredient
 - DELETE	./ingredients/:id	Delete ingredient
 
+## Deployment
+```
+Clone repo
+
+Open terminal locate the project
+
+npm i to install all the dependencies
+
+for manual installation
+
+[Required]
+npm install express init jsx-view-engine method-override mongoose bcrypt dotenv   jsonwebtoken 
+
+[Optional]
+npm install artillery jest mongodb-memory-server supertest morgan nodemon
+
+npm run start to start the server on port 3000
+```
+
 # GitHub
 [Recipe-Organizer](https://github.com/Blu3Mu51c/Recipe-Organizer)
+
 
 [Trello](https://trello.com/invite/b/688b0f0c5e3b4a57d97d8a5a/ATTIf53947960d97e8289c7aa13f0fc4d1d919E2ADC6/recipe-organizer)
